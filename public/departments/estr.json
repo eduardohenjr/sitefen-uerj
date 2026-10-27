@@ -3,8 +3,8 @@
     "name": "Engenharia de Estruturas e Fundações",
     "code": "ESTR",
     "icon": "Leaf",
-    "description": "Lorem ipsum",
-    "coordinator": "Profa. ",
+    "description": "Projeto, análise e execução de estruturas e fundações para edificações e obras de infraestrutura.",
+    "coordinator": "",
     "contactEmail": "estr@eng.uerj.br",
     "courses": [
         "Graduação em Engenharia Civil"

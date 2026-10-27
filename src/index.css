@@ -1,3 +1,81 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/source-serif-4';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-sans text-slate-700 antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif text-navy-950;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-gold-500;
+  }
+
+  ::selection {
+    @apply bg-gold-300 text-navy-950;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-gold-600;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-navy-700 transition-colors hover:text-navy-950;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-navy-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-700;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gold-400 px-5 py-3 text-sm font-semibold text-navy-950 transition-colors hover:bg-gold-300;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

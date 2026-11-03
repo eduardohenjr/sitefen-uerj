@@ -1,6 +1,6 @@
-import { ArrowRight, ChevronDown, FlaskConical, GraduationCap } from 'lucide-react';
+import { ArrowRight, FlaskConical, GraduationCap } from 'lucide-react';
+import CircuitHero from '../components/CircuitHero';
 import DepartmentCard from '../components/DepartmentCard';
-import DepartmentGlobe from '../components/DepartmentGlobe';
 import NewsCard from '../components/NewsCard';
 import Reveal from '../components/Reveal';
 import { SectionHeading, StateMessage } from '../components/Section';
@@ -40,50 +40,21 @@ export default function Home({
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 text-white">
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              'radial-gradient(50rem 32rem at 75% 40%, rgb(29 58 98 / 0.75), transparent 65%), radial-gradient(36rem 22rem at 5% 100%, rgb(201 154 46 / 0.12), transparent 60%)',
-          }}
-          aria-hidden="true"
-        />
-        <div className="container-page relative flex min-h-[calc(100svh-7.5rem)] flex-col justify-center pb-20 pt-8 lg:min-h-[calc(100svh-9.5rem)]">
-          <div className="grid items-center gap-4 lg:grid-cols-12 lg:gap-10">
-            <div className="order-2 text-center lg:order-1 lg:col-span-5 lg:text-left">
-              <Reveal delay={150}>
-                <p className="eyebrow !text-gold-400">Faculdade de Engenharia · UERJ</p>
-              </Reveal>
-              <Reveal delay={300}>
-                <h1 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-tight !text-white sm:text-5xl lg:text-6xl">
-                  Engenharia pública de <span className="text-gold-300">excelência</span>.
-                </h1>
-              </Reveal>
-              <Reveal delay={450}>
-                <button type="button" className="btn-gold mt-8" onClick={() => onNavigate('departments')}>
-                  Explorar departamentos <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </Reveal>
-            </div>
-
-            <div className="order-1 lg:order-2 lg:col-span-7">
-              <Reveal>
-                <DepartmentGlobe departments={departments} onOpen={onOpenDepartment} />
-              </Reveal>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onClick={scrollToNews}
-            aria-label="Rolar para as notícias"
-            className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 text-navy-300 transition-colors hover:text-white sm:block"
-          >
-            <ChevronDown className="h-7 w-7 motion-safe:animate-bounce" aria-hidden="true" />
+      <CircuitHero departments={departments} onOpen={onOpenDepartment} onScrollDown={scrollToNews}>
+        <Reveal delay={150}>
+          <p className="eyebrow !text-gold-400">Faculdade de Engenharia · UERJ</p>
+        </Reveal>
+        <Reveal delay={300}>
+          <h1 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-tight !text-white sm:text-5xl lg:text-6xl">
+            Engenharia pública de <span className="text-gold-300">excelência</span>.
+          </h1>
+        </Reveal>
+        <Reveal delay={450}>
+          <button type="button" className="btn-gold mt-8" onClick={() => onNavigate('departments')}>
+            Explorar departamentos <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
-        </div>
-      </section>
+        </Reveal>
+      </CircuitHero>
 
       {/* Notícias */}
       <section className="container-page pt-20 sm:pt-28" aria-labelledby="titulo-noticias">

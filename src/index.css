@@ -72,10 +72,21 @@
     transform: none;
   }
 
+  .notice-in {
+    animation: notice-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
       transform: none;
     }
+  }
+}
+
+@keyframes notice-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
 }

@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import NewsModal from './components/NewsModal';
-import NoticeBar from './components/NoticeBar';
+import NoticeToast from './components/NoticeToast';
 import DepartmentsPage from './pages/DepartmentsPage';
 import Home from './pages/Home';
 import NewsPage from './pages/NewsPage';
@@ -132,9 +132,11 @@ export default function App() {
     <div className="flex min-h-screen flex-col">
       <Header currentTab={currentTab} onNavigate={navigate} />
       {currentTab === 'home' && (
-        <NoticeBar
-          title="Opção pelo Novo Curso de Engenharia de Produção:"
-          text="edital publicado. Estudantes interessados devem consultar os requisitos."
+        <NoticeToast
+          id="edital-engenharia-producao"
+          title="Opção pelo Novo Curso de Engenharia de Produção"
+          text="Edital publicado. Consulte os requisitos."
+          actionLabel="Ver edital"
           onAction={() => openCategory('secfen')}
         />
       )}
